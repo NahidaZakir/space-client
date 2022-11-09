@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
-
+import ServiceCard from '../Services/ServiceCard';
 const Services = () => {
     const [services, setServices] = useState([]);
     useEffect(() => {
@@ -11,14 +11,17 @@ const Services = () => {
                 console.log(data);
                 setServices(data);
             })
-
     }, [])
     return (
         <div>
-            <h1>this is service</h1>
-            {
-                services.map(service => <p>{service.name}</p>)
-            }
+            <div className='bg-violet-400'>
+                <h2 className='text-center text-5xl font-bold pt-10 mb-10'>Our Services</h2>
+                <div className='grid gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+                    {
+                        services.map(service => <ServiceCard key={service._id} service={service}></ServiceCard>)
+                    }
+                </div>
+            </div>
 
         </div>
     );

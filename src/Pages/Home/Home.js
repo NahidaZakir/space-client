@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import './Home.css';
 import { FaMobileAlt } from 'react-icons/fa';
 import serviceBg from '../../Assets/service-bg.jpg'
+import { Link } from 'react-router-dom';
+import { FaArrowAltCircleRight } from 'react-icons/fa';
+import ServiceCard from '../Services/ServiceCard';
 const Home = () => {
     const [services, setServices] = useState([]);
     useEffect(() => {
@@ -18,25 +21,20 @@ const Home = () => {
                     <button className='btn  w-2/5 text-xl mt-8'><FaMobileAlt className='text-xl'></FaMobileAlt>  Call Us: 01861260597</button>
                 </div>
             </div>
-
-            <div className='w-full bg-violet-400'>
-                <h1 className='text-5xl text-center text-base-100 pt-10 pb-10 font-bold'>Our Services</h1>
-                <div className='grid grid-rows-1 grid-col-1 md:grid-col-2'>
-                    <div >
-                        <ul className='text-center font-semibold'>
-                            {
-                                services.map(service => <li className='text-3xl'>{service.name}</li>)
-                            }
-                        </ul>
-                    </div>
-                    <div>
-                        <img src={serviceBg} alt="" />
-                    </div>
-
+            <div className='bg-violet-400'>
+                <h2 className='text-center text-5xl font-bold pt-10 mb-10'>Our Services</h2>
+                <div className='grid gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+                    {
+                        services.map(service => <ServiceCard key={service._id} service={service}></ServiceCard>)
+                    }
+                </div>
+                <div className='mt-10 pb-10 text-center'>
+                    <Link to='/services'><button className='btn'>See All Services</button></Link>
 
                 </div>
 
             </div>
+
         </div>
     );
 };
