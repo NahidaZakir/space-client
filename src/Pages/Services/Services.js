@@ -4,6 +4,7 @@ import { useLoaderData } from 'react-router-dom';
 import ServiceCard from '../Services/ServiceCard';
 const Services = () => {
     const [services, setServices] = useState([]);
+    
     useEffect(() => {
         fetch('http://localhost:5000/services')
             .then(res => res.json())
@@ -12,6 +13,7 @@ const Services = () => {
                 setServices(data);
             })
     }, [])
+
     return (
         <div>
             <div className='bg-violet-400'>
@@ -22,7 +24,6 @@ const Services = () => {
                     }
                 </div>
             </div>
-
         </div>
     );
 };
