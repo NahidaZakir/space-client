@@ -4,7 +4,7 @@ import './ReviewCard.css'
 const ReviewCard = ({ review }) => {
     const { reviewerName, text, reviewerImage } = review;
     return (
-        <div className="card w-96 bg-base-100 shadow-xl">
+        <div className="card w-96 bg-base-100 shadow-xl mt-10 ">
             <div className="card-body">
                 <div className='flex flex-row justify-between'><h2 className="card-title">{reviewerName}</h2>
                     <img className='reviewer-img' src={reviewerImage} alt=""></img></div>
@@ -17,11 +17,6 @@ const ReviewCard = ({ review }) => {
                     <FaStar></FaStar>
                 </div>
                 <p>{text}</p>
-
-                <div className="card-actions justify-end">
-
-
-                </div>
             </div>
         </div>
     );
