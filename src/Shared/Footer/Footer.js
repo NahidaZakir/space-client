@@ -3,7 +3,7 @@ import logo from '../../Assets/logo.png';
 import './Footer.css';
 const Footer = () => {
     return (
-        <footer className="footer p-10 bg-violet-300 text-base-content">
+        <footer className="footer p-10 bg-violet-400 text-base-content">
             <div>
                 <img className='footer-logo rounded' src={logo} alt=''></img>
                 <p>Space Comany<br />Providing reliable service 2012</p>

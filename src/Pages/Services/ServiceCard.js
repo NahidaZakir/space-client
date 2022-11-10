@@ -2,14 +2,20 @@ import React, { useEffect, useState } from 'react';
 import './ServiceCard.css';
 import { FaStar } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
+import 'react-photo-view/dist/react-photo-view.css';
 const ServiceCard = ({ service }) => {
     const { name, _id, price, description, rating, image } = service;
 
     return (
         <div>
             <div className="card card-compact w-96 bg-base-100 shadow-xl mx-auto">
+                <PhotoProvider>
+                    <PhotoView src={image}>
+                        <img className='service-image' src={image} alt="" />
+                    </PhotoView>
+                </PhotoProvider>
 
-                <figure><img className='service-image' src={image} alt="Shoes" /></figure>
                 <div className="card-body">
                     <h2 className="card-title">{name}</h2>
                     <p>{description.slice(0, 100)} ...</p>
