@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const MyReviewCard = ({ review, handleDelete }) => {
-    const { reviewerName, _id, reviewerImage, serviceName, servicePrice, serviceRating, serviceImage, serviceDescription, reviewerText, userEmail } = review;
+    const { reviewerName, _id, reviewerImage, serviceName, servicePrice, serviceRating, serviceImage, serviceDescription, text, userEmail } = review;
 
     return (
         <tr>
@@ -28,10 +29,11 @@ const MyReviewCard = ({ review, handleDelete }) => {
             <td>
                 {serviceName}
                 <br />
-                <span className="badge badge-ghost badge-sm">{reviewerText}</span>
+                <span className="badge badge-ghost badge-sm">{text}</span>
             </td>
             <th>
-                <button className="btn text-lg">Edit</button>
+                <Link to={`/update/${_id}`}><button className="btn text-lg">Edit</button></Link>
+
             </th>
         </tr>
     );

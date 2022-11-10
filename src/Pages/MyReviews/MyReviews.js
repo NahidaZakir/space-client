@@ -6,6 +6,7 @@ import ReviewCard from '../Review/ReviewCard';
 const MyReviews = () => {
     const [reviews, setReviews] = useState([]);
     useTitle('My Reviews');
+
     useEffect(() => {
         fetch('http://localhost:5000/myreviews')
             .then(res => res.json())
@@ -17,10 +18,11 @@ const MyReviews = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure you want to delete?');
         if (proceed) {
-            fetch(`http://localhost:5000/reviews/${id}`, {
+            fetch(`http://localhost:5000/myreviews/${id}`, {
                 method: 'DELETE',
                 headers: {
 
+                    authorization: `Bearer ${localStorage.getItem('genius-token')}`
                 }
             })
                 .then(res => res.json())

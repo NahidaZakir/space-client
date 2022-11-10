@@ -3,9 +3,11 @@ import { AuthContext } from '../Contexts/AuthProvider/AuthProvider';
 import { Link } from 'react-router-dom';
 import useTitle from '../Hooks/useTitle';
 const Login = () => {
-    const { loginUser, googleLogin } = useContext(AuthContext);
+    const { loginUser, googleLogin, loading } = useContext(AuthContext);
     useTitle('Login');
-
+    if (loading) {
+        <button className="btn loading">loading</button>
+    }
     const handleLogin = event => {
         event.preventDefault();
 

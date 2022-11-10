@@ -1,3 +1,40 @@
+
+# name : Space
+# live link : 
+
+
+# Features 
+1. It has use log in methods in 2 ways: using email/password, google login
+2. User can add service 
+3. User can add reviews
+4. user can read about FAQs and Blogs in specific pages
+5. user can check his/her own all added reviews
+6. User can edit and delete his/her own reviews
+7. User can see enlarged of the services
+8. User can see number of people count using the services
+9. User can sign in and log out
+10. user can see all services and reviews
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

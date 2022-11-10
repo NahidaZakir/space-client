@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 import useTitle from '../../Hooks/useTitle';
 import ServiceCard from '../Services/ServiceCard';
 const Services = () => {
+    const { loading } = useContext(AuthContext);
+    if (loading) {
+        <button className="btn loading">loading</button>
+    }
     const [services, setServices] = useState([]);
     useTitle('Services');
     useEffect(() => {

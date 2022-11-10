@@ -21,13 +21,14 @@ const AddReview = () => {
             serviceDescription: description,
             reviewerName: revName,
             reviewerImage: revImage,
-            reviewerText: revtext,
+            text: revtext,
             userEmail: user.email
         }
         fetch('http://localhost:5000/addreview', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
+                authorization: `Bearer ${localStorage.getItem('genius-token')}`
             },
             body: JSON.stringify(review)
         })

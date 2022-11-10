@@ -18,7 +18,7 @@ const ReviewCard = ({ review }) => {
                     <FaStar></FaStar>
                     <FaStar></FaStar>
                 </div>
-                <p>{text}</p>
+                <p className='text-black'>{text}</p>
             </div>
 
         </div>

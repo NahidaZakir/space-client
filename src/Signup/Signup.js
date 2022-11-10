@@ -2,7 +2,10 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../Contexts/AuthProvider/AuthProvider';
 const Signup = () => {
-    const { createUser } = useContext(AuthContext);
+    const { createUser, loading } = useContext(AuthContext);
+    if (loading) {
+        <button className="btn loading">loading</button>
+    }
     const handleSignUp = event => {
         event.preventDefault();
         const form = event.target;
