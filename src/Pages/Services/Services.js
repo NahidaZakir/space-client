@@ -1,6 +1,6 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import ServiceCard from '../Services/ServiceCard';
 const Services = () => {
     const [services, setServices] = useState([]);
@@ -22,6 +22,12 @@ const Services = () => {
                     {
                         services.map(service => <ServiceCard key={service._id} service={service}></ServiceCard>)
                     }
+                </div>
+
+                <div className='text-center mt-10 pb-10'>
+
+                    <Link to='/addservice'><button className='btn'>Add Service</button></Link>
+
                 </div>
             </div>
         </div>

@@ -1,0 +1,11 @@
+.stats-img {
+    opacity: 0.6;
+    position: relative;
+}
+
+.stats-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

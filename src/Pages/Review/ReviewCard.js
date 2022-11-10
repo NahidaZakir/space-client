@@ -4,12 +4,14 @@ import './ReviewCard.css'
 const ReviewCard = ({ review }) => {
     const { reviewerName, text, reviewerImage } = review;
     return (
-        <div className="card w-96 bg-base-100 shadow-xl mt-10 ">
-            <div className="card-body">
-                <div className='flex flex-row justify-between'><h2 className="card-title">{reviewerName}</h2>
-                    <img className='reviewer-img' src={reviewerImage} alt=""></img></div>
+        <div className="card w-96 bg-base-100 shadow-xl">
+            <div className="card-body bg-violet-300 rounded">
+                <div className='flex justify-between items-center'>
+                    <h2 className="card-title">{reviewerName}</h2>
+                    <img className='reviewer-img' src={reviewerImage} alt="" />
+                </div>
 
-                <div className='flex flex-row '>
+                <div className='flex flex-row'>
                     <FaStar></FaStar>
                     <FaStar></FaStar>
                     <FaStar></FaStar>
@@ -18,7 +20,9 @@ const ReviewCard = ({ review }) => {
                 </div>
                 <p>{text}</p>
             </div>
+
         </div>
+
     );
 };
 

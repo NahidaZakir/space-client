@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { FaStar } from 'react-icons/fa';
 import ReviewCard from '../Review/ReviewCard';
-
+import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
+import './ServiceCard.css';
 const ServiceCardDetail = () => {
+    const { user } = useContext(AuthContext);
     const { name, _id, price, rating, description, image } = useLoaderData();
+
     const [allreviews, setAllReviews] = useState([]);
     const [remaining, setRemaining] = useState([]);
     useEffect(() => {
@@ -19,33 +22,43 @@ const ServiceCardDetail = () => {
             })
     }, [allreviews, name])
     return (
-        <div className=' bg-violet-400'>
-            <h1 className='text-5xl font-bold text-center pt-10 mb-10'>Service Detail</h1>
-            <div className="card card-compact w-4/5 bg-base-100 shadow-xl mx-auto pt-20 pb-20">
-                <div className="card-body rounded">
-                    <h2 className="card-title text-5xl ml-20">{name}</h2>
-                    <div className='flex flex-col md:flex-row '>
-                        <div className="card-actions justify-end w-full md:w-1/3  mx-auto">
-                            <figure><img className='service-detail-image' src={image} alt="Shoes" /></figure>
-                        </div>
-                        <div className='flex flex-col w-full md:w-2/3 pl-5 pr-5'>
-                            <p className='text-justify text-xl'>{description}</p>
-                            <div className='flex justify-center mt-5'>
-                                <p className='text-2xl'>Price: $ {price}</p>
-                                <div className='flex items-center'>
-                                    <p className='mr-3 text-xl'>Rating: {rating}  </p>
-                                    <FaStar></FaStar>
-                                </div>
-                            </div>
-                        </div>
+        <div className=' bg-white'>
+            <h1 className='text-5xl mt-5 mb-5  font-bold text-center '>Service Detail</h1>
+            <div className="card lg:card-side bg-violet-300 shadow-xl mr-20 ml-20 mb-20 ">
+                <div className='w-1/2'>
+                    <figure><img className="service-detail-image rounded" src={image} alt="Album" /></figure>
+                </div>
+
+                <div className="card-body w-1/2">
+                    <h2 className="card-title font-semibold text-5xl justify-center mb-5">{name}</h2>
+                    <p className='text-justify'>{description}</p>
+                    <p>Price: ${price} </p>
+
+                    <p className='flex flex-row justify-start items-center'>Rating: {rating} <span className='ml-2'><FaStar></FaStar></span></p>
+                </div>
+            </div>
+
+
+
+
+
+
+
+            <div className=' pb-10 bg-white'>
+                <h1 className=' text-center text-5xl mt-10 font-bold mb-10'>Reviews</h1>
+                <div className='flex justify-center'>
+                    <div className='grid gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+                        {
+                            remaining.map(rem => <ReviewCard key={rem._id} review={rem}></ReviewCard>)
+                        }
                     </div>
                 </div>
             </div>
-            <div className=''>
-                <h1 className=' text-center text-5xl mt-10 mb-10'>Reviews</h1>
-                <div className='grid gap-3 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+
+            <div className='flex justify-center pb-10 '>
+                <div className='bg-violet-500 rounded-lg'>
                     {
-                        remaining.map(rem => <ReviewCard key={rem._id} review={rem}></ReviewCard>)
+                        user?.email ? <Link to='/addreview'><button className='btn glass font-extrabold text-black'>Add Review</button></Link> : <Link to='/login'><button className='btn glass font-extrabold text-black'>Please Log in to add Review</button></Link>
                     }
                 </div>
 
