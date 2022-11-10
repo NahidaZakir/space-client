@@ -58,7 +58,7 @@ const ServiceCardDetail = () => {
             <div className='flex justify-center pb-10 '>
                 <div className='bg-violet-500 rounded-lg'>
                     {
-                        user?.email ? <Link to='/addreview'><button className='btn glass font-extrabold text-black'>Add Review</button></Link> : <Link to='/login'><button className='btn glass font-extrabold text-black'>Please Log in to add Review</button></Link>
+                        user?.email ? <Link to={`/addreview/${_id}`}><button className='btn glass font-extrabold text-black'>Add Review</button></Link> : <Link to='/login'><button className='btn glass font-extrabold text-black'>Please Log in to add Review</button></Link>
                     }
                 </div>
 
