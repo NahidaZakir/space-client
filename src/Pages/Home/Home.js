@@ -7,8 +7,10 @@ import { FaArrowAltCircleRight } from 'react-icons/fa';
 import ServiceCard from '../Services/ServiceCard';
 import AboutUs from '../AboutUs/AboutUs';
 import Statictics from '../Statistics/Statictics';
+import useTitle from '../../Hooks/useTitle';
 const Home = () => {
     const [services, setServices] = useState([]);
+    useTitle('Home');
     useEffect(() => {
         fetch('http://localhost:5000/')
             .then(res => res.json())

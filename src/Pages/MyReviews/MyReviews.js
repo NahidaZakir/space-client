@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import useTitle from '../../Hooks/useTitle';
 import MyReviewCard from '../MyReviewCard/MyReviewCard';
 import ReviewCard from '../Review/ReviewCard';
 
 const MyReviews = () => {
     const [reviews, setReviews] = useState([]);
+    useTitle('My Reviews');
     useEffect(() => {
         fetch('http://localhost:5000/myreviews')
             .then(res => res.json())
